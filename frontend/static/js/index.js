@@ -15,7 +15,14 @@ const router = async () => {
 
     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
 
-    console.log(match);
+    if (!match) {
+        match = {
+            route: routes[0],
+            isMatch: true
+        };
+    };
+    
+    console.log(match.route.view());
 };
 
 document.addEventListener("DOMContentLoaded", () => {
