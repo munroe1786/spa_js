@@ -12,6 +12,10 @@ const router = async () => {
             isMatch: location.pathname === route.path
         };
     });
+
+    let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
+
+    console.log(match);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
