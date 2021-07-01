@@ -7,7 +7,7 @@ export default class {
         document.title = title;
     }
 
-    async getHTML() {
+    async getHtml() {
         return "";
     }
 }
