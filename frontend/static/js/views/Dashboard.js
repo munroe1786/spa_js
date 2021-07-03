@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
     constructor() {
+        super();
         this.setTitle("Dashboard");
     }
 
@@ -28,5 +29,4 @@ export default class extends AbstractView {
             </p>
         `;
     }
-
 }
