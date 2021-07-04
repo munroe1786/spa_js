@@ -1,4 +1,4 @@
-import Dashboard from "./views/Dashboard";
+import Dashboard from "./views/Dashboard.js";
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -31,9 +31,7 @@ const router = async () => {
     
     const view = new match.route.view();
 
-    document.querySelector("#app").inner = await view.getHtml();
-
-    console.log(match.route.view());
+    document.querySelector("#app").innerHTML = await view.getHtml();
 };
 
 window.addEventListener("popstate", router);
