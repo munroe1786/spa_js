@@ -1,4 +1,3 @@
-import { match } from "assert";
 import Dashboard from "./views/Dashboard.js";
 import Posts from "./views/Posts.js";
 import Settings from "./views/Settings.js";
@@ -6,8 +5,13 @@ import Settings from "./views/Settings.js";
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)")+ "$");
 
 const getParams = match => {
-    const values = 
-}
+    const values = match.result.slice(1);
+    const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
+
+    console.log(Array.from(match.route.path.matchAll(/:(\w+)/g)));
+
+    return {};
+};
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -18,7 +22,7 @@ const router = async () => {
     const routes = [
         { path: "/", view: Dashboard },
         { path: "/posts", view: Posts },
-        // { path: "/posts/:id", view: ViewPost },
+        { path: "/posts/:id/:dcode", view: Posts },
         { path: "/settings", view: Settings}
         //{ path: "/posts", view: () => console.log("Viewing Posts") },
         //{ path: "/settings", view: () => console.log("Viewing Settings") }, 
