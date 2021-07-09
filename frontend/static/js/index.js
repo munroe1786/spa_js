@@ -8,9 +8,11 @@ const navigateTo = url => {
 };
 
 const router = async () => {
+    // /posts/:id
     const routes = [
         { path: "/", view: Dashboard },
         { path: "/posts", view: Posts },
+        // { path: "/posts/:id", view: ViewPost },
         { path: "/settings", view: Settings}
         //{ path: "/posts", view: () => console.log("Viewing Posts") },
         //{ path: "/settings", view: () => console.log("Viewing Settings") }, 
