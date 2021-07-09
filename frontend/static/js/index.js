@@ -2,7 +2,7 @@ import Dashboard from "./views/Dashboard.js";
 import Posts from "./views/Posts.js";
 import Settings from "./views/Settings.js";
 
-const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+") + "$");
+const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)")+ "$");
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -10,7 +10,6 @@ const navigateTo = url => {
 };
 
 const router = async () => {
-    // /posts/:id
     const routes = [
         { path: "/", view: Dashboard },
         { path: "/posts", view: Posts },
@@ -24,7 +23,7 @@ const router = async () => {
     const potentialMatches = routes.map(route => {
         return {
             route: route,
-            isMatch: location.pathname === route.path
+            result: location.pathname.match(pathToRegex(route.path))
         };
     });
 
