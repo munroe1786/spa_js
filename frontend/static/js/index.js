@@ -1,8 +1,13 @@
+import { match } from "assert";
 import Dashboard from "./views/Dashboard.js";
 import Posts from "./views/Posts.js";
 import Settings from "./views/Settings.js";
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)")+ "$");
+
+const getParams = match => {
+    const values = 
+}
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -36,7 +41,7 @@ const router = async () => {
         };
     };
     
-    const view = new match.route.view();
+    const view = new match.route.view(getParams(match));
 
     document.querySelector("#app").innerHTML = await view.getHtml();
 };
