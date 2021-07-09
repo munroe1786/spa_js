@@ -27,7 +27,7 @@ const router = async () => {
         };
     });
 
-    let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
+    let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
 
     if (!match) {
         match = {
